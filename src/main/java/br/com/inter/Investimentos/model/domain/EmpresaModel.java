@@ -12,7 +12,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Empresa implements Serializable {
+public class EmpresaModel implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -23,5 +23,6 @@ public class Empresa implements Serializable {
     private String ticket;
     private String acao;
     private Double preco;
+    private String status;
 }
 
