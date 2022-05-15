@@ -1,5 +1,6 @@
 package br.com.inter.Investimentos.model;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class InvestidorModel implements Serializable {
 
     private String cpf;
 
+    @ApiModelProperty(value = "Todas compras efetuadas pela investidor de determinado id")
     @ElementCollection
     private List<CompraModel> compras;
 }
