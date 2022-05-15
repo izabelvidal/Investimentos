@@ -1,4 +1,4 @@
-package br.com.inter.Investimentos.model.domain;
+package br.com.inter.Investimentos.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -6,13 +6,14 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
-@Table(name = "empresa")
+@Table(name = "investidor")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class EmpresaModel implements Serializable {
+public class InvestidorModel implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -20,10 +21,8 @@ public class EmpresaModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(unique = true)
-    private String ticket;
-    private String acao;
-    private Double preco;
-    private String status;
-}
+    private String cpf;
 
+    @ElementCollection
+    private List<CompraModel> compras;
+}

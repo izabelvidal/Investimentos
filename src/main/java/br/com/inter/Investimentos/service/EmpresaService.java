@@ -1,6 +1,6 @@
 package br.com.inter.Investimentos.service;
 
-import br.com.inter.Investimentos.model.domain.EmpresaModel;
+import br.com.inter.Investimentos.model.EmpresaModel;
 import br.com.inter.Investimentos.repository.EmpresaRepository;
 import br.com.inter.Investimentos.service.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
