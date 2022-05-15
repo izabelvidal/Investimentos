@@ -42,10 +42,10 @@ public class EmpresaService {
                 "Objeto não encontrado! Id: " + id + ", Tipo: " + EmpresaModel.class.getName()));
     }
 
-    public EmpresaModel findByAcao(String acao){
-        Optional<EmpresaModel> obj = repository.findByAcao(acao);
+    public EmpresaModel findByAcao(String ticket){
+        Optional<EmpresaModel> obj = repository.findByTicket(ticket);
         return obj.orElseThrow(() -> new ObjectNotFoundException(
-                "Objeto não encontrado! Ação: " + acao + ", Tipo: " + EmpresaModel.class.getName()));
+                "Objeto não encontrado! Ação: " + ticket + ", Tipo: " + EmpresaModel.class.getName()));
     }
 
     public EmpresaModel updateStatus(Integer id, String status){
@@ -54,8 +54,8 @@ public class EmpresaService {
         return repository.save(obj);
     }
 
-    public EmpresaModel updatePreco(String acao, Double preco){
-        EmpresaModel obj = findByAcao(acao);
+    public EmpresaModel updatePreco(Integer id, Double preco){
+        EmpresaModel obj = findById(id);
         obj.setPreco(preco);
         return repository.save(obj);
     }

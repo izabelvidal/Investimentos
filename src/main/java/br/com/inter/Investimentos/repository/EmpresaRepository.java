@@ -2,8 +2,6 @@ package br.com.inter.Investimentos.repository;
 
 import br.com.inter.Investimentos.model.domain.EmpresaModel;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -16,5 +14,5 @@ public interface EmpresaRepository extends JpaRepository<EmpresaModel, Integer> 
 //    List<EmpresaModel> findbyStatus(@Param("status") String status);
     List<EmpresaModel> findByStatus(String status);
 
-    Optional<EmpresaModel> findByAcao(String acao);
+    Optional<EmpresaModel> findByTicket(String ticket);
 }

@@ -20,6 +20,7 @@ public class EmpresaModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
     private String ticket;
     private String acao;
     private Double preco;
