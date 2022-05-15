@@ -16,6 +16,7 @@ public class EmpresaService {
     EmpresaRepository repository;
 
     public EmpresaModel insert(EmpresaModel obj) {
+        obj.setStatus("ATIVA");
         obj = repository.save(obj);
         return obj;
     }
@@ -28,8 +29,8 @@ public class EmpresaService {
         }
     }
 
-    public List<EmpresaModel> findByStatus(String status){
-        return repository.findByStatus(status);
+    public Optional<List<EmpresaModel>> findByStatus(String status){
+        return repository.findbyStatus(status);
     }
 
     public List<EmpresaModel> findAll(){

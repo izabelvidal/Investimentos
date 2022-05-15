@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping(value = "/empresa")
@@ -29,33 +30,33 @@ public class EmpresaController {
         return ResponseEntity.ok().body(obj);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id){
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/price/{id}")
     public ResponseEntity<Void> updatePreco(@PathVariable Integer id, @RequestParam Double preco){
         service.updatePreco(id, preco);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().build();
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/status/{id}")
     public ResponseEntity<Void> updateStatus(@PathVariable Integer id, @RequestParam String status){
         service.updateStatus(id, status);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().build();
     }
 
-    @GetMapping
+    @GetMapping("/list/all")
     public ResponseEntity<List<EmpresaModel>> findAll(){
         List<EmpresaModel> obj = service.findAll();
         return ResponseEntity.ok().body(obj);
     }
 
-    @GetMapping
-    public ResponseEntity<List<EmpresaModel>> findByStatus(@RequestParam String status){
-        List<EmpresaModel> obj = service.findByStatus(status);
+    @GetMapping("/list/status")
+    public ResponseEntity<Optional<List<EmpresaModel>>> findByStatus(@RequestParam String status){
+        Optional<List<EmpresaModel>> obj = service.findByStatus(status);
         return ResponseEntity.ok().body(obj);
     }
 }
