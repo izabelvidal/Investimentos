@@ -1,6 +1,5 @@
 package br.com.inter.Investimentos.controller;
 
-import br.com.inter.Investimentos.model.EmpresaModel;
 import br.com.inter.Investimentos.model.InvestidorModel;
 import br.com.inter.Investimentos.service.InvestidorService;
 import io.swagger.annotations.ApiOperation;
