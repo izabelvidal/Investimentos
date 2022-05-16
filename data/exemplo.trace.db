@@ -559,3 +559,6 @@ SELECT * FROM EMPRESA"; SQL statement:
 select * from investidor
 select * from compra
 select * from empresa [42000-200]
+2022-05-16 16:16:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'34,00' (COMPRA: ""TROCO"" DOUBLE)"; SQL statement:
+insert into compra (id, investidor, investimento, numero_empresas, troco) values (default, ?, ?, ?, ?) [22018-200]
