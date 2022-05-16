@@ -22,6 +22,7 @@ public class CompraModel implements Serializable {
     private Integer id;
 
     @ApiModelProperty(value = "identificacao do comprador")
+    @OneToOne
     @JoinColumn(name = "investidor_id")
     private InvestidorModel investidor;
 

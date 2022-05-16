@@ -23,4 +23,7 @@ public class InvestidorModel implements Serializable {
     private Integer id;
 
     private String cpf;
+
+    @ElementCollection
+    private List<CompraModel> compras;
 }
