@@ -1,5 +1,4 @@
-# Nome do projeto
-Desafio Inter
+# Desafio Inter
 
 <img src="https://play-lh.googleusercontent.com/jaCkHvnjyNSTiID7_xDQATtRBDdH0eHZlnPNKIUWhx4XrrUQveXgtOnz9NiHz2AaCtcN=s180-rw" alt="Logo Banco Inter">
 
