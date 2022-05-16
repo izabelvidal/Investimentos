@@ -1,7 +1,7 @@
 # Nome do projeto
 Desafio Inter
 
-<img src="exemplo-image.png" alt="exemplo imagem">
+<img src="https://play-lh.googleusercontent.com/jaCkHvnjyNSTiID7_xDQATtRBDdH0eHZlnPNKIUWhx4XrrUQveXgtOnz9NiHz2AaCtcN=s180-rw" alt="Logo Banco Inter">
 
 > Projeto criado em desafio do banco Inter
 
