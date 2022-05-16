@@ -23,8 +23,4 @@ public class InvestidorModel implements Serializable {
     private Integer id;
 
     private String cpf;
-
-    @ApiModelProperty(value = "Todas compras efetuadas pela investidor de determinado id")
-    @ElementCollection
-    private List<CompraModel> compras;
 }

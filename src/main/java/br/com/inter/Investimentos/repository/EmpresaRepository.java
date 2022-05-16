@@ -14,6 +14,4 @@ public interface EmpresaRepository extends JpaRepository<EmpresaModel, Integer> 
 
     @Query("SELECT e FROM EmpresaModel e WHERE e.status = :#{#status}")
     Optional<List<EmpresaModel>> findbyStatus(@Param("status") String status);
-
-    Optional<EmpresaModel> findByTicket(String ticket);
 }

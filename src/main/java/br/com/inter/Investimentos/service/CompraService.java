@@ -24,6 +24,7 @@ public class CompraService {
     @Autowired
     private EmpresaService empresaService;
 
+
     public List<CompraModel> findAll() {
         return repository.findAll();
     }
@@ -31,31 +32,44 @@ public class CompraService {
     public CompraModel find(Integer id) {
         Optional<CompraModel> obj = repository.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException(
-                "Objeto não encontrado! Id: " + id + ", Tipo: " + InvestidorModel.class.getName()));
+                "Objeto não encontrado! Id: " + id + ", Tipo: " +CompraModel.class.getName()));
     }
 
     public CompraModel insert(CompraModel obj){
-        realizaCompra(obj);
-        return repository.save(obj);
+        InvestidorModel investidor = investidorService.findByCpf(obj.getInvestidor().getCpf());
+        obj.setInvestidor(investidor);
+        CompraModel compra = realizaCompra(obj);
+        return repository.save(compra);
     }
 
-    private void realizaCompra(CompraModel compra){
+    private CompraModel realizaCompra(CompraModel compra){
         List<EmpresaModel>  empresas = empresaService.findAll();
         EmpresaModel empresa = selecionaEmpresa(empresas);
         contagemVendas(empresa);
+        compra.setTroco(troco(compra.getInvestimento(), empresa));
+
+        return compra;
     }
 
     private EmpresaModel selecionaEmpresa(List<EmpresaModel> empresas){
         Random rand = new Random();
-        int randomIndex = rand.nextInt(empresas.size());
-        EmpresaModel randomElement = empresas.get(randomIndex);
+        Integer randomIndex = rand.nextInt(empresas.size());
+        EmpresaModel randomElement = empresaService.findById(randomIndex);
         return randomElement;
     }
 
     private EmpresaModel contagemVendas(EmpresaModel empresa){
         Integer acoesVendidas = empresa.getAcoesVendidas();
         acoesVendidas += 1;
-        empresa.setAcoesVendidas(acoesVendidas);
+        empresaService.updateAcoesVendida(empresa.getId(), acoesVendidas);
         return empresa;
+    }
+
+    private Double troco(Double investimento, EmpresaModel empresa){
+        Double troco = investimento % empresa.getPreco();
+        if (troco == 0){
+            return null;
+        }
+        return troco;
     }
 }

@@ -23,7 +23,7 @@ import java.util.Optional;
 public class EmpresaController {
 
     @Autowired
-    EmpresaService service;
+    private EmpresaService service;
 
     @ApiOperation(value = "Cria uma nova empresa na base de dados")
     @PostMapping("/insert")

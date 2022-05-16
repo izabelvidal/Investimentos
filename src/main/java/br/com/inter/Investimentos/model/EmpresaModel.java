@@ -30,6 +30,6 @@ public class EmpresaModel implements Serializable {
     private String acao;
     private Double preco;
     private String status;
-    private Integer acoesVendidas;
+    private Integer acoesVendidas = 0;
 }
 

@@ -19,6 +19,12 @@ public class InvestidorService {
         return repository.findAll();
     }
 
+    public InvestidorModel findByCpf(String cpf){
+        Optional<InvestidorModel > obj = repository.findbyCpf(cpf);
+        return obj.orElseThrow(() -> new ObjectNotFoundException(
+                "Objeto não encontrado! CPF: " + cpf + ", Tipo: " + InvestidorModel.class.getName()));
+    }
+
     public InvestidorModel insert(InvestidorModel obj) {
         obj = repository.save(obj);
         return obj;

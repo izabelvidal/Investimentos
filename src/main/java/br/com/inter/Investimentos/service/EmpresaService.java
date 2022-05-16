@@ -55,4 +55,10 @@ public class EmpresaService {
         return repository.save(obj);
     }
 
+    public EmpresaModel updateAcoesVendida(Integer id, Integer acaoVendida){
+        EmpresaModel obj = findById(id);
+        obj.setAcoesVendidas(acaoVendida);
+        return repository.save(obj);
+    }
+
 }
