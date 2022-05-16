@@ -43,14 +43,14 @@ public class EmpresaController {
     @PutMapping("/update/price/{id}")
     public ResponseEntity<Void> updatePreco(@PathVariable Integer id, @RequestParam Double preco){
         service.updatePreco(id, preco);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
     }
 
     @ApiOperation(value = "Atualiza o status da empresa do id passado por parametro")
     @PutMapping("/update/status/{id}")
     public ResponseEntity<Void> updateStatus(@PathVariable Integer id, @RequestParam String status){
         service.updateStatus(id, status);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
     }
 
     @ApiOperation(value = "Retorna todas empresas cadastradas")
